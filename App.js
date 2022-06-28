@@ -6,13 +6,6 @@ export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [saludo, setSaludo] = useState('')
 
- 
-
-  const Separator = () => (
-    <View style={styles.separator} />
-  );
-
-
 
 
 
@@ -37,7 +30,7 @@ export default function App() {
         <StatusBar style="auto" />
       </View>
 
-      <Separator />
+     
 
       <Modal
         animationType="fade"        
