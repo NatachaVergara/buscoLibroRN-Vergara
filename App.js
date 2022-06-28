@@ -1,28 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, Alert, Modal, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Alert, Modal, Pressable } from 'react-native';
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [texto, setTexto] = useState('Hola Coders')
+  const [saludo, setSaludo] = useState('')
+
+ 
+
   const Separator = () => (
     <View style={styles.separator} />
   );
 
 
+
+
+
   const onHandlePress = (e) => {
     setModalVisible(!modalVisible)
-
+    setSaludo('Hola, Coders!')     
+  
   }
+
+  
 
   return (
     <>
       <View style={styles.container}>
         <Text style={styles.texto}>Busco Libro App</Text>
         {/* <TextInput style={styles.textInput}  />     */}
-        <Pressable style={styles.button} title='Saludar' 
+        <Pressable style={styles.button} 
         onPress={onHandlePress}>
-          <Text style={styles.textStyle}>Saludar</Text>
+          <Text style={styles.textStyle}>Abrir</Text>
 
         </Pressable>
         <StatusBar style="auto" />
@@ -31,7 +40,7 @@ export default function App() {
       <Separator />
 
       <Modal
-        animationType="slide"
+        animationType="fade"        
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -41,7 +50,7 @@ export default function App() {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>{texto}</Text>
+            <Text style={styles.modalText}>{saludo}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
